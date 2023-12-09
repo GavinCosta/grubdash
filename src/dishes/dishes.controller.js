@@ -1,8 +1,15 @@
 const path = require("path");
-
+const dishesService = require('./dishes.service')
 // Use the existing dishes data
 const dishes = require(path.resolve("src/data/dishes-data"));
-
+/**
+ * function list(req,res,next) {
+ * dishesService
+ *  .list()
+ *  .then((data) => res.json({data}))
+ * .catch(next)
+ * }
+ */
 // Use this function to assign ID's when necessary
 const nextId = require("../utils/nextId");
 
@@ -77,7 +84,7 @@ function validateIdExists(req, res, next) {
 }
 
 function validateIdMatches(req, res, next) {
-    const {data: {id, name, description, price, image_url} = {}} = req.body
+    const {data: {id} = {}} = req.body
     const dishId = res.locals.dishId
     if (dishId === id || !id) {
         next()

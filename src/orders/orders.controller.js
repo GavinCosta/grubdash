@@ -1,5 +1,8 @@
 const path = require("path");
 
+const ordersService = require("./orders.service")
+
+
 // Use the existing order data
 const orders = require(path.resolve("src/data/orders-data"));
 
@@ -10,6 +13,36 @@ const nextId = require("../utils/nextId");
 function list(req, res, next) {
   res.json({ data: orders });
 }
+
+/**
+ * list with knex
+ *  
+ *  function list(req,res,next) {
+ * ordersService
+ *  .list()
+ *  .then(data => res.json({date}))
+ *  .catch(next)
+ * }
+ * 
+ * validate orderExists
+ * 
+ * function orderExists(req, res, next) {
+    ordersService
+    .read(req.params.orderId)
+    .then((order) => {
+      if (order) {
+        res.locals.order = order;
+        return next();
+      }
+      next({ status: 404, message: `Order cannot be found.` });
+    })
+    .catch(next);
+}
+ *  function read(req,res) {
+     const {order: data} = res.locals
+     res.json({data})
+ }
+ */
 
 function validatorFor(prop, propMessage) {
   return function (req, res, next) {
