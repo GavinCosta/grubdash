@@ -9,6 +9,7 @@
   },
   "main": "src/server.js",
   "scripts": {
+    "build": "react-scripts build",
     "docker:build": "docker image build . -t thinkful-ed/zid-be-project-grub-dash-01-qualified",
     "docker:run": "docker run --rm -it -p 5000:5000 thinkful-ed/zid-be-project-grub-dash-01-qualified",
     "docker:stop": "docker stop $(docker ps -q)",
