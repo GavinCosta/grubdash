@@ -9,7 +9,6 @@
   },
   "main": "src/server.js",
   "scripts": {
-    "build": "react-scripts build",
     "docker:build": "docker image build . -t thinkful-ed/zid-be-project-grub-dash-01-qualified",
     "docker:run": "docker run --rm -it -p 5000:5000 thinkful-ed/zid-be-project-grub-dash-01-qualified",
     "docker:stop": "docker stop $(docker ps -q)",
@@ -29,7 +28,7 @@
     "cross-conf-env": "^1.2.1",
     "dotenv": "^16.3.1",
     "express": "^4.17.1",
-    "knex": "^3.0.1",
+    "knex": "^3.1.0",
     "pg": "^8.11.3"
   },
   "devDependencies": {
