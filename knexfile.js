@@ -15,9 +15,9 @@ module.exports = {
   },
 };
 
-// const config = {
-//   client: "postgresql",
-//   connection: DATABASE_URL,
-// };
+const config = {
+  client: "postgresql",
+  connection: DATABASE_URL,
+};
 
 const knex = require("knex")(config);
